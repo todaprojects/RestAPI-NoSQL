@@ -2,7 +2,7 @@
 
 ## About
 
-* .NET 5 microservice with a functional REST API and its own MongoDB database.
+* .NET 5 web api with a functional REST API and its own MongoDB database.
 * Project status: prototype
 
 ## Table of contents
