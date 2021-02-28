@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.Domain", "RestAPI-NoSQL.Domain\RestAPI-NoSQL.Domain.csproj", "{BAA58085-8AAD-44FF-8B0C-8EEE92D0447A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.Repository", "RestAPI-NoSQL.Repository\RestAPI-NoSQL.Repository.csproj", "{681773BC-5335-4102-9143-FB281C763735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.WebApi", "RestAPI-NoSQL.WebApi\RestAPI-NoSQL.WebApi.csproj", "{D068679D-40E2-4A74-A8E9-41EACC923C24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAA58085-8AAD-44FF-8B0C-8EEE92D0447A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA58085-8AAD-44FF-8B0C-8EEE92D0447A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA58085-8AAD-44FF-8B0C-8EEE92D0447A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA58085-8AAD-44FF-8B0C-8EEE92D0447A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681773BC-5335-4102-9143-FB281C763735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681773BC-5335-4102-9143-FB281C763735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681773BC-5335-4102-9143-FB281C763735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681773BC-5335-4102-9143-FB281C763735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
