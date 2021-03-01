@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
+using RestAPI_NoSQL.Application;
 using RestAPI_NoSQL.Domain.Interfaces;
 using RestAPI_NoSQL.Repository.Repositories;
 using RestAPI_NoSQL.Repository.Settings;
@@ -30,6 +31,12 @@ namespace RestAPI_NoSQL.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var serviceCollection = DependencyInjection.ConfigureServices();
+            foreach (var service in serviceCollection)
+            {
+                services.Add(service);
+            }
+            
             services.AddSingleton(serviceProvider =>
                 {
                     var mongoDbSettings = Configuration.GetSection("MongoDbSettings").Get<MongoDbSettings>();

@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.Repository", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.WebApi", "RestAPI-NoSQL.WebApi\RestAPI-NoSQL.WebApi.csproj", "{D068679D-40E2-4A74-A8E9-41EACC923C24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI-NoSQL.Application", "RestAPI-NoSQL.Application\RestAPI-NoSQL.Application.csproj", "{5E192791-2BB5-4AC8-AC0B-AD9E18818333}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D068679D-40E2-4A74-A8E9-41EACC923C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E192791-2BB5-4AC8-AC0B-AD9E18818333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E192791-2BB5-4AC8-AC0B-AD9E18818333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E192791-2BB5-4AC8-AC0B-AD9E18818333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E192791-2BB5-4AC8-AC0B-AD9E18818333}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

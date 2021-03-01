@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\RestAPI-NoSQL.Application\RestAPI-NoSQL.Application.csproj" />
       <ProjectReference Include="..\RestAPI-NoSQL.Repository\RestAPI-NoSQL.Repository.csproj" />
     </ItemGroup>
 
