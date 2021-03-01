@@ -14,17 +14,17 @@ namespace RestAPI_NoSQL.WebApi.Controllers
     [Route("items")]
     public class CatalogItemsController : ControllerBase
     {
-        private readonly ICatalogItemRepository repository;
+        private readonly ICatalogItemRepository _repository;
 
         public CatalogItemsController(ICatalogItemRepository repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Dtos.CatalogItemDto>> GetAsync()
         {
-            var itemEntities = await repository.GetAllAsync();
+            var itemEntities = await _repository.GetAllAsync();
             var itemDtos = itemEntities.Select(entity => entity.AsDto());
 
             return itemDtos;
@@ -33,7 +33,7 @@ namespace RestAPI_NoSQL.WebApi.Controllers
         [HttpGet("{id}", Name = "GetById")]
         public async Task<ActionResult<Dtos.CatalogItemDto>> GetByIdAsync(Guid id)
         {
-            var item = await repository.GetAsync(id);
+            var item = await _repository.GetAsync(id);
             if (item == null)
             {
                 return NotFound();
@@ -45,16 +45,21 @@ namespace RestAPI_NoSQL.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Dtos.CatalogItemDto>> PostAsync(Dtos.CreateCatalogItemDto createItemDto)
         {
-            var item = new CatalogItem
+            if (createItemDto != null)
             {
-                Name = createItemDto.Name,
-                Description = createItemDto.Description,
-                Price = createItemDto.Price,
-                CreatedDate = DateTimeOffset.UtcNow
-            };
-            await repository.CreateAsync(item);
+                var item = new CatalogItem
+                {
+                    Name = createItemDto.Name,
+                    Description = createItemDto.Description,
+                    Price = createItemDto.Price,
+                    CreatedDate = DateTimeOffset.UtcNow
+                };
+                await _repository.CreateAsync(item);
 
-            return CreatedAtRoute("GetById", new {id = item.Id}, item);
+                return CreatedAtRoute("GetById", new {id = item.Id}, item);
+            }
+
+            return BadRequest("Failed saving item");
         }
     }
 }

@@ -9,13 +9,13 @@ namespace RestAPI_NoSQL.Repository.Repositories
 {
     public class CatalogItemRepository : ICatalogItemRepository
     {
-        private const string collectionName = "catalogitems";
-        private readonly IMongoCollection<CatalogItem> dbCollection;
-        private readonly FilterDefinitionBuilder<CatalogItem> filterBuilder = Builders<CatalogItem>.Filter;
+        private const string CollectionName = "catalogitems";
+        private readonly IMongoCollection<CatalogItem> _dbCollection;
+        private readonly FilterDefinitionBuilder<CatalogItem> _filterBuilder = Builders<CatalogItem>.Filter;
 
         public CatalogItemRepository(IMongoDatabase database)
         {
-            dbCollection = database.GetCollection<CatalogItem>(collectionName);
+            _dbCollection = database.GetCollection<CatalogItem>(CollectionName);
         }
 
         public async Task CreateAsync(CatalogItem catalogItem)
@@ -25,18 +25,18 @@ namespace RestAPI_NoSQL.Repository.Repositories
                 throw new ArgumentNullException(nameof(catalogItem));
             }
 
-            await dbCollection.InsertOneAsync(catalogItem);
+            await _dbCollection.InsertOneAsync(catalogItem);
         }
 
         public async Task<IReadOnlyCollection<CatalogItem>> GetAllAsync()
         {
-            return await dbCollection.Find(filterBuilder.Empty).ToListAsync();
+            return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
         }
 
         public async Task<CatalogItem> GetAsync(Guid id)
         {
-            FilterDefinition<CatalogItem> filter = filterBuilder.Eq(catalogItem => catalogItem.Id, id);
-            return await dbCollection.Find(filter).FirstOrDefaultAsync();
+            var filter = _filterBuilder.Eq(catalogItem => catalogItem.Id, id);
+            return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
     }
 }
