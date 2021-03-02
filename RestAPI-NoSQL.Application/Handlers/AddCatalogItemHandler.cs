@@ -26,7 +26,7 @@ namespace RestAPI_NoSQL.Application.Handlers
                 Price = request.Price,
                 CreatedDate = DateTimeOffset.UtcNow
             };
-            await _repository.AddItemAsync(item);
+            await _repository.AddCatalogItemAsync(item);
 
             return item;
         }

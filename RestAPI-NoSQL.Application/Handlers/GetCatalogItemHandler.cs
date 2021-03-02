@@ -18,7 +18,7 @@ namespace RestAPI_NoSQL.Application.Handlers
 
         public async Task<CatalogItem> Handle(GetCatalogItemQuery request, CancellationToken cancellationToken)
         {
-            return await _repository.GetAsync(request.Id);
+            return await _repository.GetCatalogItemAsync(request.Id);
         }
     }
 }

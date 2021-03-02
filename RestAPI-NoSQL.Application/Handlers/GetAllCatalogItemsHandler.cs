@@ -19,7 +19,7 @@ namespace RestAPI_NoSQL.Application.Handlers
 
         public async Task<IEnumerable<CatalogItem>> Handle(GetAllCatalogItemsQuery request, CancellationToken cancellationToken)
         {
-            return await _repository.GetAllItemsAsync();
+            return await _repository.GetAllCatalogItemsAsync();
         }
     }
 }
