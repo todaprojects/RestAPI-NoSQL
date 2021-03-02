@@ -1,6 +1,6 @@
-<p style="text-align: center">
-  <img src="https://user-images.githubusercontent.com/70706753/109709512-46a57180-7ba5-11eb-944e-3c0e918e4405.png"  alt="RestAPI-NoSQL"/>
-</p>
+<div style="display: flex;justify-content: center">
+  <img style="display: block" src="https://user-images.githubusercontent.com/70706753/109709512-46a57180-7ba5-11eb-944e-3c0e918e4405.png"  alt="RestAPI-NoSQL"/>
+</div>
 
 ## Table of contents
 
