@@ -9,6 +9,6 @@ namespace RestAPI_NoSQL.Domain.Interfaces
     {
         Task<CatalogItem> GetAsync(Guid id);
         Task<IReadOnlyCollection<CatalogItem>> GetAllAsync();
-        Task CreateAsync(CatalogItem catalogItem);
+        Task AddItemAsync(CatalogItem catalogItem);
     }
 }

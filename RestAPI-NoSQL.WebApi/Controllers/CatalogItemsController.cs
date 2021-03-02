@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using RestAPI_NoSQL.Application.Commands;
 using RestAPI_NoSQL.Domain.Dtos;
 using RestAPI_NoSQL.Domain.Entities;
 using RestAPI_NoSQL.Domain.Helpers;
@@ -12,51 +14,51 @@ namespace RestAPI_NoSQL.WebApi.Controllers
 {
     [ApiController]
     [Route("items")]
-    public class CatalogItemsController : ControllerBase
+    public class CatalogItemsController : Controller
     {
-        private readonly ICatalogItemRepository _repository;
+        private readonly IMediator _mediator;
 
-        public CatalogItemsController(ICatalogItemRepository repository)
+        public CatalogItemsController(IMediator mediator)
         {
-            _repository = repository;
+            _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<Dtos.CatalogItemDto>> GetAsync()
-        {
-            var itemEntities = await _repository.GetAllAsync();
-            var itemDtos = itemEntities.Select(entity => entity.AsDto());
+        // private readonly ICatalogItemRepository _repository;
+        //
+        // public CatalogItemsController(ICatalogItemRepository repository)
+        // {
+        //     _repository = repository;
+        // }
 
-            return itemDtos;
-        }
+        // [HttpGet]
+        // public async Task<IEnumerable<Dtos.CatalogItemDto>> GetAsync()
+        // {
+        //     var itemEntities = await _repository.GetAllAsync();
+        //     var itemDtos = itemEntities.Select(entity => entity.AsDto());
+        //
+        //     return itemDtos;
+        // }
 
-        [HttpGet("{id}", Name = "GetById")]
-        public async Task<ActionResult<Dtos.CatalogItemDto>> GetByIdAsync(Guid id)
-        {
-            var item = await _repository.GetAsync(id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-
-            return item.AsDto();
-        }
+        // [HttpGet("{id}", Name = "GetById")]
+        // public async Task<ActionResult<Dtos.CatalogItemDto>> GetByIdAsync(Guid id)
+        // {
+        //     var item = await _repository.GetAsync(id);
+        //     if (item == null)
+        //     {
+        //         return NotFound();
+        //     }
+        //
+        //     return item.AsDto();
+        // }
 
         [HttpPost]
-        public async Task<ActionResult<Dtos.CatalogItemDto>> PostAsync(Dtos.CreateCatalogItemDto createItemDto)
+        public async Task<ActionResult<CatalogItem>> AddItemAsync([FromBody] AddCatalogItemCommand command)
         {
-            if (createItemDto != null)
+            var item = await _mediator.Send(command);
+            if (item != null)
             {
-                var item = new CatalogItem
-                {
-                    Name = createItemDto.Name,
-                    Description = createItemDto.Description,
-                    Price = createItemDto.Price,
-                    CreatedDate = DateTimeOffset.UtcNow
-                };
-                await _repository.CreateAsync(item);
-
-                return CreatedAtRoute("GetById", new {id = item.Id}, item);
+                // return CreatedAtRoute("GetById", new {id = item.Id}, item);
+                return Ok(item);
             }
 
             return BadRequest("Failed saving item");

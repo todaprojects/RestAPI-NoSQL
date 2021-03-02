@@ -1,6 +1,9 @@
+using System.Reflection;
 using AutoMapper;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
+using RestAPI_NoSQL.Application.Handlers;
 using RestAPI_NoSQL.Application.Mapping;
 using RestAPI_NoSQL.Domain.Interfaces;
 using RestAPI_NoSQL.Repository.Repositories;
@@ -23,7 +26,8 @@ namespace RestAPI_NoSQL.Application
             
         services.AddSingleton<ICatalogItemRepository, CatalogItemRepository>();
         
-        // services.AddMediatR(typeof(GetAllTodosHandler).Assembly);
+        services.AddScoped<IMediator, Mediator>();
+        services.AddMediatR(typeof(AddCatalogItemHandler).Assembly);
 
         var mapperConfig = new MapperConfiguration(mc =>
         {

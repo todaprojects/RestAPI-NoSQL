@@ -29,7 +29,7 @@ namespace RestAPI_NoSQL.Repository.Repositories
             return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
         }
         
-        public async Task CreateAsync(CatalogItem catalogItem)
+        public async Task AddItemAsync(CatalogItem catalogItem)
         {
             if (catalogItem == null)
             {

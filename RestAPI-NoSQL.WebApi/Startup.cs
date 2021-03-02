@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +38,7 @@ namespace RestAPI_NoSQL.WebApi
             {
                 services.Add(service);
             }
-
+            
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
