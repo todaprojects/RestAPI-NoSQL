@@ -8,7 +8,7 @@ namespace RestAPI_NoSQL.Domain.Interfaces
     public interface ICatalogItemRepository
     {
         Task<CatalogItem> GetAsync(Guid id);
-        Task<IReadOnlyCollection<CatalogItem>> GetAllAsync();
+        Task<IReadOnlyCollection<CatalogItem>> GetAllItemsAsync();
         Task AddItemAsync(CatalogItem catalogItem);
     }
 }

@@ -24,7 +24,7 @@ namespace RestAPI_NoSQL.Repository.Repositories
             return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
         
-        public async Task<IReadOnlyCollection<CatalogItem>> GetAllAsync()
+        public async Task<IReadOnlyCollection<CatalogItem>> GetAllItemsAsync()
         {
             return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
         }

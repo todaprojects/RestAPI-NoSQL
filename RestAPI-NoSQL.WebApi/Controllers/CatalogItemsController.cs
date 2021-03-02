@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RestAPI_NoSQL.Application.Commands;
-using RestAPI_NoSQL.Domain.Dtos;
+using RestAPI_NoSQL.Application.Queries;
 using RestAPI_NoSQL.Domain.Entities;
-using RestAPI_NoSQL.Domain.Helpers;
-using RestAPI_NoSQL.Domain.Interfaces;
 
 namespace RestAPI_NoSQL.WebApi.Controllers
 {
@@ -23,33 +20,29 @@ namespace RestAPI_NoSQL.WebApi.Controllers
             _mediator = mediator;
         }
 
-        // private readonly ICatalogItemRepository _repository;
-        //
-        // public CatalogItemsController(ICatalogItemRepository repository)
-        // {
-        //     _repository = repository;
-        // }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CatalogItem>>> GetAllItemsAsync()
+        {
+            var items = await _mediator.Send(new GetAllCatalogItemsQuery());
+            if (items != null)
+            {
+                return Ok(items);
+            }
+            
+            return NotFound();
+        }
 
-        // [HttpGet]
-        // public async Task<IEnumerable<Dtos.CatalogItemDto>> GetAsync()
-        // {
-        //     var itemEntities = await _repository.GetAllAsync();
-        //     var itemDtos = itemEntities.Select(entity => entity.AsDto());
-        //
-        //     return itemDtos;
-        // }
-
-        // [HttpGet("{id}", Name = "GetById")]
-        // public async Task<ActionResult<Dtos.CatalogItemDto>> GetByIdAsync(Guid id)
-        // {
-        //     var item = await _repository.GetAsync(id);
-        //     if (item == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //
-        //     return item.AsDto();
-        // }
+        [HttpGet("{id}", Name = "GetById")]
+        public async Task<ActionResult<CatalogItem>> GetItemAsync(Guid id)
+        {
+            var item = await _mediator.Send(new GetCatalogItemQuery(){Id = id});
+            if (item != null)
+            {
+                return Ok(item);
+            }
+            
+            return NotFound();
+        }
 
         [HttpPost]
         public async Task<ActionResult<CatalogItem>> AddItemAsync([FromBody] AddCatalogItemCommand command)
