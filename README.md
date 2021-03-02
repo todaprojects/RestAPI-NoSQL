@@ -1,12 +1,12 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/70706753/109709512-46a57180-7ba5-11eb-944e-3c0e918e4405.png" />
+<p style="text-align: center">
+  <img src="https://user-images.githubusercontent.com/70706753/109709512-46a57180-7ba5-11eb-944e-3c0e918e4405.png"  alt="RestAPI-NoSQL"/>
 </p>
 
 ## Table of contents
 
 > * [Table of contents](#table-of-contents)
 > * [General info / Synopsis](#general-info)
-> * [Used technologies](#used-technologies)
+> * [Used technologies](#used-technologies--tools)
 > * [Usage](#Usage)
 >   * [Requirements](#Requirements)
 
