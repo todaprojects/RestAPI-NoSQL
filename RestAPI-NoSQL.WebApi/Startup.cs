@@ -31,13 +31,11 @@ namespace RestAPI_NoSQL.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(serviceProvider =>
-                {
-                    var mongoDbSettings = Configuration.GetSection("MongoDbSettings").Get<MongoDbSettings>();
-                    var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
-                    return mongoClient.GetDatabase("Catalog");
-                })
-                .AddSingleton<ICatalogItemRepository, CatalogItemRepository>();
+            var serviceCollection = DependencyInjection.ConfigureServices();
+            foreach (var service in serviceCollection)
+            {
+                services.Add(service);
+            }
 
             services.AddControllers();
 
