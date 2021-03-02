@@ -1,4 +1,3 @@
-using System.Reflection;
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +6,6 @@ using RestAPI_NoSQL.Application.Handlers;
 using RestAPI_NoSQL.Application.Mapping;
 using RestAPI_NoSQL.Domain.Interfaces;
 using RestAPI_NoSQL.Repository.Repositories;
-using RestAPI_NoSQL.Repository.Settings;
 
 namespace RestAPI_NoSQL.Application
 {

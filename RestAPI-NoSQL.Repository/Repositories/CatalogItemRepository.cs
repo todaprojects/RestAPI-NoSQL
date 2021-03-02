@@ -23,12 +23,12 @@ namespace RestAPI_NoSQL.Repository.Repositories
             var filter = _filterBuilder.Eq(catalogItem => catalogItem.Id, id);
             return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
-        
+
         public async Task<IReadOnlyCollection<CatalogItem>> GetAllCatalogItemsAsync()
         {
             return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
         }
-        
+
         public async Task AddCatalogItemAsync(CatalogItem catalogItem)
         {
             if (catalogItem == null)
@@ -39,9 +39,17 @@ namespace RestAPI_NoSQL.Repository.Repositories
             await _dbCollection.InsertOneAsync(catalogItem);
         }
 
-        public Task<Guid> DeleteCatalogItemAsync(Guid id)
+        public async Task<Guid?> DeleteCatalogItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = _filterBuilder.Eq(catalogItem => catalogItem.Id, id);
+            var result = await _dbCollection.DeleteOneAsync(filter);
+
+            if (result.DeletedCount != 0)
+            {
+                return id;
+            }
+            
+            return null;
         }
     }
 }

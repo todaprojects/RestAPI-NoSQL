@@ -56,5 +56,17 @@ namespace RestAPI_NoSQL.WebApi.Controllers
 
             return BadRequest("Failed saving item");
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Guid?>> DeleteCatalogItem(Guid id)
+        {
+            var itemId = await _mediator.Send(new DeleteCatalogItemCommand() {Id = id});
+            if (itemId != null)
+            {
+                return Ok(itemId);
+            }
+            
+            return BadRequest("Catalog item not found");
+        }
     }
 }
