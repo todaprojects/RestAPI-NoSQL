@@ -12,7 +12,7 @@
 
 * ASP.NET Core 5 web api with a functional REST API and its own MongoDB database.
 * Implementing basic CQRS
-* Project status: prototype
+* Project status: learning prototype
 
 ## Used Technologies
 * ASP.NET Core 5.0
