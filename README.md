@@ -26,3 +26,22 @@
 ## Usage
 
 ### Requirements
+* Installed .NET 5.0 SDK on your machine
+
+
+* Running MongoDB server. Optionally can run it as a container on Docker (using Command Line):
+
+  `docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo`
+
+### Running Application
+* Open **RestAPI-NoSQL** folder directory on Command Line - "cd" to directory:
+  
+  `cd path/to/directory`
+
+
+* Start application:
+
+  `dotnet run --project ./RestAPI-NoSQL.WebApi/RestAPI-NoSQL.WebApi.csproj`
+
+
+* Open `https://localhost:5001/swagger/index.html` on your browser to launch a **Swagger UI** to visually render documentation for application.
