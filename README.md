@@ -5,10 +5,11 @@
 ## Table of contents
 
 > * [Table of contents](#table-of-contents)
-> * [General info / Synopsis](#general-info)
-> * [Used technologies](#used-technologies--tools)
+> * [General info](#general-info)
+> * [Used technologies & tools](#used-technologies--tools)
 > * [Usage](#Usage)
 >   * [Requirements](#Requirements)
+>   * [Running application](#running-application)
 
 ## General Info
 
