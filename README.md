@@ -18,11 +18,11 @@
 * Project status: learning prototype
 
 ## Used Technologies & Tools
-* ASP.NET Core 5.0
-* C# 9.0
-* MongoDB.Driver/2.11.6
-* AutoMapper/10.1.1
-* MediatR/9.0.0
+* ASP.NET Core 5.0 - a cross-platform software framework.
+* C# 9.0 programming language
+* MongoDB.Driver/2.11.6 - official .NET driver for MongoDB (NuGet package).
+* AutoMapper/10.1.1 - a convention-based object-object mapper (NuGet package).
+* MediatR/9.0.0 - simple, unambitious mediator implementation in .NET (NuGet package).
 
 ## Usage
 
