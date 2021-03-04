@@ -31,7 +31,7 @@ namespace RestAPI_NoSQL.Application
         {
             mc.AddProfile(new MappingProfile());
         });
-
+        
         var mapper = mapperConfig.CreateMapper();
         services.AddSingleton(mapper);
         

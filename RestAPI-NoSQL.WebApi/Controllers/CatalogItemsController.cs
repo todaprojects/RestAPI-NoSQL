@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RestAPI_NoSQL.Application.Commands;
 using RestAPI_NoSQL.Application.Queries;
+using RestAPI_NoSQL.Domain.Dtos;
 using RestAPI_NoSQL.Domain.Entities;
 
 namespace RestAPI_NoSQL.WebApi.Controllers
@@ -45,7 +46,7 @@ namespace RestAPI_NoSQL.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CatalogItem>> AddItemAsync([FromBody] AddCatalogItemCommand command)
+        public async Task<ActionResult<CatalogItemDto>> AddItemAsync([FromBody] AddCatalogItemCommand command)
         {
             var item = await _mediator.Send(command);
             if (item != null)
