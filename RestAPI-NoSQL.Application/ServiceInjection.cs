@@ -9,7 +9,7 @@ using RestAPI_NoSQL.Repository.Repositories;
 
 namespace RestAPI_NoSQL.Application
 {
-    public static class DependencyInjection
+    public static class ServiceInjection
     {
         public static IServiceCollection ConfigureServices()
         {
