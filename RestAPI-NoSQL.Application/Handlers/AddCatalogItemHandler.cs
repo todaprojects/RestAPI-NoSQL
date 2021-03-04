@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using RestAPI_NoSQL.Application.Commands;
+using RestAPI_NoSQL.Domain.Dtos;
 using RestAPI_NoSQL.Domain.Entities;
 using RestAPI_NoSQL.Domain.Interfaces;
 

@@ -50,8 +50,7 @@ namespace RestAPI_NoSQL.WebApi.Controllers
             var item = await _mediator.Send(command);
             if (item != null)
             {
-                // return CreatedAtRoute("GetById", new {id = item.Id}, item);
-                return Ok(item);
+                return CreatedAtRoute("GetById", new {id = item.Id}, item);
             }
 
             return BadRequest("Failed saving item");
